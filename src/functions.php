@@ -45,6 +45,10 @@ if (!function_exists('jamstack_deployments_fire_webhook')) {
     function jamstack_deployments_fire_webhook() {
         \Crgeary\JAMstackDeployments\WebhookTrigger::fireWebhook();
     }
+    add_action('user_register', 'jamstack_deployments_fire_webhook');
+    add_action('delete_user', 'jamstack_deployments_fire_webhook');
+    add_action('edit_user_profile', 'jamstack_deployments_fire_webhook');
+
 }
 
 if (!function_exists('jamstack_deployments_force_fire_webhook')) {
